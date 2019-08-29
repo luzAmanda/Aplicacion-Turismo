@@ -12,3 +12,8 @@
 */
 
 Route::get('/', 'InicioController@index') ;
+//Route::get('admin/dishes', 'Admin\DishesController@index');
+Route::resource('admin/dishes', 'Admin\DishesController');
+Route::resource('admin/drinks', 'Admin\\DrinksController');
+//Route::post('admin/menu-platos', 'Admin\\DishesController@store')->name('guardar-plato');
+//Route::post('admin/dishes', 'Admin\DishesController@store')->name('save_menu');

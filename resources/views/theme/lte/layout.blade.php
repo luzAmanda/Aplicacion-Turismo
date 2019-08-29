@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>@yield('Titulo','Ozi PLace') | Aplicación</title>
+  <title>@yield('titulo','Ozi PLace') | Ozi PLace</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -17,6 +17,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset("assets/$theme/dist/css/skins/_all-skins.min.css")}}">
+  <link rel="stylesheet" href="{{asset("assets/css/custom.css")}}">
   @yield('styles')  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,8 +41,9 @@
                       @yield('contenido')      
 
                     </section>
+                   
             </div>
-            @include("theme/$theme/footer")
+            @include("theme/$theme/footer")  
     </div>
     <!-- jQuery 3 -->
 <script src="{{asset("assets/$theme/bower_components/jquery/dist/jquery.min.js")}}"></script>
@@ -56,5 +58,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset("assets/$theme/dist/js/demo.js")}}"></script>
 @yield("scripts")
+
 </body>
 </html>

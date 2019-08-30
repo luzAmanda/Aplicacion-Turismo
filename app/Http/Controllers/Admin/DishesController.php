@@ -35,7 +35,7 @@ class DishesController extends Controller
         }
 */
         $dishes=Dish::orderBy('id_plato')->get();
-        return view('admin.dishes.index', compact('dishes'));
+        return view('admin.menu.dishes.index', compact('dishes'));
     }
 
     /**
@@ -45,7 +45,7 @@ class DishesController extends Controller
      */
     public function create()
     {
-        return view('admin.dishes.create');
+        return view('admin.menu.dishes.create');
     }
 
     /**
@@ -107,7 +107,7 @@ class DishesController extends Controller
     {
         $dish = Dish::findOrFail($id);
 
-        return view('admin.dishes.show', compact('dish'));
+        return view('admin.menu.dishes.show', compact('dish'));
     }
 
     /**
@@ -121,7 +121,7 @@ class DishesController extends Controller
     {
         $dish = Dish::findOrFail($id);
 
-        return view('admin.dishes.edit', compact('dish'));
+        return view('admin.nmenu.dishes.edit', compact('dish'));
     }
 
     /**
@@ -140,7 +140,7 @@ class DishesController extends Controller
         $dish = Dish::findOrFail($id);
         $dish->update($requestData);
 
-        return redirect('admin/dishes')->with('flash_message', 'Dish updated!');
+        return redirect('admin/menu/dishes')->with('flash_message', 'Dish updated!');
     }
 
     /**
@@ -154,6 +154,6 @@ class DishesController extends Controller
     {
         Dish::destroy($id);
 
-        return redirect('admin/dishes')->with('flash_message', 'Dish deleted!');
+        return redirect('admin/menu/dishes')->with('flash_message', 'Dish deleted!');
     }
 }

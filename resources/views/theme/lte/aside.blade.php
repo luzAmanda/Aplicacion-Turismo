@@ -27,7 +27,7 @@
            {{-- <li class="header">MAIN NAVIGATION</li>
           --}}  
           <li>
-              <a href="../../admin/home">
+              <a href="../../home">
                 <i class="fa fa-home"></i> <span>Home</span>
                 
               </a>
@@ -42,9 +42,9 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../../admin/menu/dishes"><i class="fa fa-circle-o"></i> Platos</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-glass"></i> Bebidas</a></li>
-                <li><a href="../../index2.html"><i class="fa fa-gratipay"></i> Postres</a></li>
+                <li><a href="../../dishes"><i class="fa fa-circle-o"></i> Platos</a></li>
+                <li><a href="../../drinks"><i class="fa fa-glass"></i> Bebidas</a></li>
+                <li><a href="../../cake.html"><i class="fa fa-gratipay"></i> Postres</a></li>
                 <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Combinaciones</a></li>
               </ul>
             </li>

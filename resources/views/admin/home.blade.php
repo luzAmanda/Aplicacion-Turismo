@@ -1,8 +1,8 @@
-@extends("theme.$theme.layout")
-@section("titulo")
-Home
-@endsection
-@section("contenido")
+@extends("theme.crui.layout")
+    @section("titulo")
+       homehhh
+    @endsection
+     @section("contenid")
 <div class="row">
     <div class="col-lg-12">
             <div class="box box-info">

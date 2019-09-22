@@ -5,3 +5,7 @@ composer require --dev "xethron/migrations-generator"
 ## Comand to convert all the tables into migration files. 
 
 php artisan migrate:generate
+
+## Image
+composer require intervention/image
+

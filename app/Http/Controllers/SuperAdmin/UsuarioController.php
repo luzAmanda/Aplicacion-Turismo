@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\UsuarioRequest;
 
-use App\Usuario;
+use App\User;
 
 class UsuarioController extends Controller
 {
@@ -19,7 +19,7 @@ class UsuarioController extends Controller
     public function index()
     {
         try{
-            $usuarios=Usuario::where('estado',1)->orderBy('updated_at')->get();
+            $usuarios=User::where('estado',1)->orderBy('updated_at')->get();
            // if($usuarios==!""){
                 view('superAdmin.tiponegocio.index',compact('usuarios'));
            // }
@@ -48,7 +48,7 @@ class UsuarioController extends Controller
     {
         
         try{
-            $neg = new Usuario;
+            $neg = new User;
             $neg->cedula=trim($request->get('cedula'));
             $neg->nombre=trim($request->get('nombre'));
             $neg->apellido=trim($request->get('apellido'));

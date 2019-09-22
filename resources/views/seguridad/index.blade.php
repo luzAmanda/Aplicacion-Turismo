@@ -25,7 +25,7 @@
             </div>
             @endif
           <div class="card-group">
-              <form method="POST" action="{{ route('login') }}" id="login" autocomplete="off">
+              <form method="POST" action="{{ route('login-post') }}" id="login" autocomplete="off">
                   @csrf
                 <div class="card p-4">
                    
@@ -73,12 +73,3 @@
           </div>
         </div>
         @endsection
-
-
-
-
-
-
-
-
-

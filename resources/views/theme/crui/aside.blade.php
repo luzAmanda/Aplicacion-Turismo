@@ -7,11 +7,12 @@
               <!--  <span class="badge badge-primary">NEW</span> -->
               </a>
             </li>
-           
+          
             <li class="nav-title">Compenentes</li>
+       
             <li class="nav-item nav-dropdown">
               <a class="nav-link " href="categoria">
-                <i class="nav-icon icon-puzzle"></i>Categoría</a>
+                <i class="nav-icon icon-puzzle"></i>Repertorio</a>
               <ul class="nav-dropdown-items">
              
               </ul>
@@ -23,9 +24,18 @@
              
               </ul>
             </li>
+          
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link" href="detalle">
+                <i class="nav-icon icon-cursor"></i> Sector</a>
+              <ul class="nav-dropdown-items">
+             
+              </ul>
+            </li>
+            
             <li class="nav-item nav-dropdown">
               <a class="nav-link" href="tiponegocio">
-                <i class="nav-icon icon-cursor"></i> Sección</a>
+                <i class="nav-icon icon-cursor"></i>Sector / Tipo de negocio</a>
               <ul class="nav-dropdown-items">
              
               </ul>
@@ -33,11 +43,12 @@
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link" href="negocio?cate=1">
-              <i class="nav-icon icon-cursor"></i> Pyme</a>
+              <i class="nav-icon icon-cursor"></i> Negocio</a>
             <ul class="nav-dropdown-items">
            
             </ul>
           </li>
+         
           <li class="nav-item nav-dropdown">
               <a class="nav-link" href="sucursal?cate=1">
                 <i class="nav-icon icon-cursor"></i>Sucursal</a>
@@ -45,6 +56,7 @@
              
               </ul>
             </li>
+          
             <li class="nav-item nav-dropdown">
                 <a class="nav-link" href="usuario">
                   <i class="nav-icon icon-user"></i>Usuario</a>
@@ -52,6 +64,7 @@
                
                 </ul>
               </li>
+              <!--
             <li class="nav-item">
               <a class="nav-link" href="charts.html">
                 <i class="nav-icon icon-pie-chart"></i> Promociones</a>
@@ -62,7 +75,7 @@
               <ul class="nav-dropdown-items">
                 
               </ul>
-            </li>
+            </li>-->
             <li class="nav-item nav-dropdown">
                 <a class="nav-link " href="#">
                   <i class="nav-icon icon-star"></i> Papelera de reciclaje</a>

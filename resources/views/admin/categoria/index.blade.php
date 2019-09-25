@@ -35,6 +35,7 @@
                                         data-toggle="modal" data-target="#myModal">
                                             <span class="fa fa-plus-square"></span> Nuevo
                                         </a>     
+                                        <img src="img/food_icon.svg" alt="My SVG Icon">
                                 </div>
                             </div>
                         </div>

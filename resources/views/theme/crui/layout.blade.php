@@ -18,8 +18,8 @@
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>OziPlace</title>
     <!-- Icons-->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
-    <link href="{{ asset('coreui/node_modules/@coreui/icons/css/coreui-icons.min.css')}}" rel="stylesheet">
+    <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+    --><link href="{{ asset('coreui/node_modules/@coreui/icons/css/coreui-icons.min.css')}}" rel="stylesheet">
     <link href="{{ asset('coreui/node_modules/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet">
     <link href="{{ asset('coreui/node_modules/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{ asset('coreui/node_modules/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet">
@@ -148,8 +148,8 @@
 	<script src="icos.js"></script>
 
     <script src="{{asset('coreui/node_modules/jquery/dist/jquery.min.js')}}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="{{asset('coreui/node_modules/popper.js/dist/umd/popper.min.js')}}"></script>
+  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  --> <script src="{{asset('coreui/node_modules/popper.js/dist/umd/popper.min.js')}}"></script>
     <script src="{{asset('coreui/node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('coreui/node_modules/pace-progress/pace.min.js')}}"></script>
     <script src="{{asset('coreui/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')}}"></script>

@@ -214,7 +214,7 @@ class TablaTipoNegocioSeeder extends Seeder
         ///////////////////////////////
         DB::table('tipo_negocio')->insert([
             'id_sector'=>6, 
-            'nombre' => 'Electrodom´´esticos',
+            'nombre' => 'Electrodomésticos',
             'icono' => 'fa fa-building', 
         ]);
         DB::table('tipo_negocio')->insert([
@@ -495,7 +495,7 @@ class TablaTipoNegocioSeeder extends Seeder
             'icono' => 'fa fa-building', 
         ]);   
 /////////////////////////////////////////////////
-        DB::table('tipo_negocio')->insert([
+   /*     DB::table('tipo_negocio')->insert([
             'nombre' => 'Cosméticos',
             'icono' => 'basket', 
         ]);
@@ -515,7 +515,7 @@ class TablaTipoNegocioSeeder extends Seeder
             'nombre' => 'Lavadero de autos',
             'icono' => 'fa fa-building', 
         ]);
-
+*/
 
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\SuperAdmin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-
+use App\Sector;
 use App\TipoNegocio;
 use App\Http\Requests\TipoNegocioRequest;
 
@@ -21,27 +21,23 @@ class TipoNegocioController extends Controller
     public function index(Request $request)
     {
        try{
-        if ($request) {
-            $query = trim($request->get('searchText'));
-            $pag = trim($request->get('pag'));
-            $cate = trim($request->get('cate'));
-            if ($pag== "") {  
-                $pag=4;
-            } 
-            if($cate!==""){           
-            $sectores=Sector::all();
-            $tipoNegocios=DB::table('tipo_negocio')->
-            where('nombre','LIKE','%'.$query.'%')->where('estado','=',1)->where('id_tiponegocio',$cate)
-            ->orderBy('updated_at')->paginate($pag);
-        }
+       
+        //    if($cate!==""){           
+           $sectores=Sector::all();
+            $tipoNegocios=DB::table('tipo_negocio')
+         //  where('estado','=',1)
+           // ->orderBy('updated_at')
+            ->get();
+      //  }
       //  $categorias=Categoria::where('estado','=',1)->orderBy('created_at')->paginate($pag);
       
      // return view('admin.categoria.index', compact('categorias'));
-     return view('superAdmin.tipoNegocio.index',["tipoNegocios" =>$tipoNegocios,"searchText" => $query,
-     "sectores"=>$sectores,"pag" => $pag]);
+     return view('superAdmin.tipoNegocio.index',["tipoNegocios" =>$tipoNegocios,
+     "sectores"=>$sectores,
+   ]);
 
       //return view('usuarios.index', ["usuarios"  => $usuarios,"searchText" => $query,"pag" => $pag]);    
-        } 
+        
 }catch (\Exception $e) {
     return back()->withErrors(['exception' => $e->getMessage()])->withInput();
 }

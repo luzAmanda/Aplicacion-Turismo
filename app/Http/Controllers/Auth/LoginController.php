@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request;
+
+
 class LoginController extends Controller
 {
     /*
@@ -36,6 +39,18 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+//    protected function authenticated(Request $request, $user)
+  //  {
+      /*   $roles = $user->where('estado', 1)->get();
+        if ($roles->isNotEmpty()) {
+            $user->setSession($roles->toArray());
+        } else {
+            $this->guard()->logout();
+            $request->session()->invalidate();
+            return redirect('login')->withErrors(['error' => 'Este usuario no tiene un usuario activo']);
+        }
+    } */
     public function username()
     {
         return 'correo';

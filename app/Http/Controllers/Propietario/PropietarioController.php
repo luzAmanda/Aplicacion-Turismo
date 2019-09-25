@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\SuperAdmin;
+namespace App\Http\Controllers\Propietario;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SuperAdminController extends Controller
+class PropietarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class SuperAdminController extends Controller
      */
     public function index()
     {
-    return view('superAdmin.home');
+    return view('propietario.home');
     }
 
     /**

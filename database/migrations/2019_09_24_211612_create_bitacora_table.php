@@ -15,7 +15,7 @@ class CreateBitacoraTable extends Migration {
 		Schema::create('bitacora', function(Blueprint $table)
 		{
 			$table->integer('id_bitacora', true);
-			$table->integer('id_usuario')->nullable();
+			$table->integer('id_user')->nullable();
 			$table->string('ip', 30);
 			$table->string('accion', 100);
 			$table->date('fecha');

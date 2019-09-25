@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreatePropietariosTable extends Migration {
+class CreateSectoresTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreatePropietariosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('propietarios', function(Blueprint $table)
+		Schema::create('sectores', function(Blueprint $table)
 		{
-			$table->integer('id_propietario', true);
-			$table->integer('id_usuario')->nullable();
+			$table->integer('id_sector', true);
+			$table->string('nombre', 100)->nullable();
 		});
 	}
 
@@ -27,7 +27,7 @@ class CreatePropietariosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('propietarios');
+		Schema::drop('sectores');
 	}
 
 }

@@ -23,7 +23,7 @@
                                 </div> 
                         <div class="col-lg-4">
                             <fieldset class="form-group" data-select2-id="152">
-                                    <label>Seleccione sección</label>
+                                    <label>Seleccione Tipo de negocio</label>
                                     <select class="form-control select2-single select2-hidden-accessible" id="select2-1" data-select2-id="select2-1" tabindex="-1" aria-hidden="true"
                                     onchange="javascript:handleSelect2(this)">
                                         <option data-select2-id="141" disabled >Seleccione.. </option>

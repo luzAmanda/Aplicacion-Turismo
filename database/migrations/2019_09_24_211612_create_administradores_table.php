@@ -16,7 +16,7 @@ class CreateAdministradoresTable extends Migration {
 		{
 			$table->integer('id_administrador', true);
 			$table->integer('id_sucursal')->nullable();
-			$table->integer('id_usuario')->nullable();
+			$table->integer('id_user')->nullable();
 		});
 	}
 

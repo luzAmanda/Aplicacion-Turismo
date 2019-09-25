@@ -8,14 +8,12 @@
     @include('superAdmin/tipoNegocio/createModal')
     @include('superAdmin/tipoNegocio/editModal')
     @include('superAdmin/tipoNegocio/delete')
-     
+    
 <div><br></div>
      <div class="animated fadeIn">
         <div class="card">
-            <div class="card-header">
-                    
-                    <i class="fa fa-edit"></i>Categoría-Negocio
-               
+            <div class="card-header">    
+                    <i class="fa fa-edit"></i>Categoría-Negocio               
             </div>
         <div class="card-body">
             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
@@ -42,6 +40,11 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <table class="table table-striped table-bordered datatable dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="border-collapse: collapse !important">
+                            <div class="row">
+                               
+                            </div>    
+                            
+                            
                             <thead>
                                 <tr role="row">
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nombre: activate to sort column ascending" style="width: 170px;">Nombre</th>

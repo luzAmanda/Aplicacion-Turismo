@@ -18,13 +18,10 @@
         <div class="card-body">
             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                     <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                                   
-                                    <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                                     
+                            <div class="col-sm-12 col-md-6">    
+                                    <div id="DataTables_Table_0_filter" class="dataTables_filter"> 
                                     @include('superAdmin/tipoNegocio.search')
-                                    </div>
-                                   
+                                    </div>     
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <div class="card-header-actions">
@@ -97,7 +94,25 @@
                             <div class="dataTables_length" id="DataTables_Table_0_length">
                              <label>Show</label>   <label>
                                  
-                              
+                                    <select name="formal" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm"
+                                    onchange="javascript:handleSelect(this)">
+                                    <option value="tiponegocio?pag=4"<?php 
+                                    if ($pag=='4') {
+                                        echo 'selected';
+                                    }?>>4</option>
+                                    <option value="tiponegocio?pag=10"<?php 
+                                    if ($pag=='10') {
+                                        echo 'selected';
+                                    }?>>10</option>
+                                    <option value="tiponegocio?pag=25"<?php 
+                                    if ($pag=='25') {
+                                        echo 'selected';
+                                    }?>>25</option>
+                                    <option value="tiponegocio?pag=50"<?php 
+                                    if ($pag=='50') {
+                                        echo 'selected';
+                                    }?>>50</option>
+                                    
                                     </select> 
                                     
                                 </label>
@@ -106,7 +121,8 @@
                 <!--<div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 32 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item next" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="5" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
                 -->     
                         
-                    
+                        {{$tipoNegocios->render()}}  
+                      
                     </div>
                 </div>
             </div>

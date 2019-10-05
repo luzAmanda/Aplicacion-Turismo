@@ -24,10 +24,10 @@ class TipoNegocioController extends Controller
        
         //    if($cate!==""){           
            $sectores=Sector::all();
-            $tipoNegocios=DB::table('tipo_negocio')
-         //  where('estado','=',1)
-           // ->orderBy('updated_at')
-            ->get();
+            $tipoNegocios=DB::table('tipo_negocio')->
+          where('estado','=',1)
+          ->orderBy('created_at','asc')
+            ->paginate(1);
       //  }
       //  $categorias=Categoria::where('estado','=',1)->orderBy('created_at')->paginate($pag);
       

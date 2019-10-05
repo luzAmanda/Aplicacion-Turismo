@@ -20,11 +20,11 @@ class CategoriaController extends Controller
             $query = trim($request->get('searchText'));
             $pag = trim($request->get('pag'));
             if ($pag== "") {  
-                $pag=4;
+                $pag=3;
             } 
             $categorias=DB::table('categorias')->
             where('nombre','LIKE','%'.$query.'%')->where('estado','=',1)
-            ->orderBy('created_at')->paginate($pag);
+            ->orderBy('updated_at')->paginate($pag);
     
       //  $categorias=Categoria::where('estado','=',1)->orderBy('created_at')->paginate($pag);
       

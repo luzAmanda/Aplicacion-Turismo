@@ -24,3 +24,20 @@
                 .oculto1 ul li:hover {background:#FFF;color:#000}
               .oculto1 input[type=text] { font-size:13px;padding:5px;margin:0 0 10px 0;border:1px solid #ddd; }
             </style>
+
+<style>
+  *{margin:0; padding:0;font-family:Arial, sans-serif;border:0;font-weight:400;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+  
+  h1 {text-align:center;margin:30px 0 10px 0}
+
+  .select{position:relative;width:117%;height:100%;margin:0 auto}
+  .picker3 {position:relative;width:90%;margin:0 auto}
+  .inputpicker3 {width:100%;padding:10px;background:#f2f2f2}  
+   
+
+  .oculto3 {width:100%;background:#f2f2f2;border-radius:0 0 10px 10px;padding:10px;overflow:auto;max-height:200px;}
+    .oculto3 ul {float:left;width:100%;margin:1%;padding:0}
+      .oculto3 ul li {margin:1%;padding:0;width:50px;height:50px;text-align:center;font-size:15px;font-family:"fontawesome";float:left;cursor:pointer;color:#666;line-height:30px;transition:0.2s all}
+      .oculto3 ul li:hover {background:#FFF;color:#000}
+    .oculto3 input[type=text] { font-size:13px;padding:5px;margin:1% 0 10px 0;border:1px solid #ddd; }
+  </style>

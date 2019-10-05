@@ -145,7 +145,10 @@
     
     <!-- CoreUI and necessary plugins-->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-	<script src="icos.js"></script>
+  <script src="icos.js"></script>
+  <script src="icos3.js"></script>
+  <script src="education.js"></script>
+
 
     <script src="{{asset('coreui/node_modules/jquery/dist/jquery.min.js')}}"></script>
   <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

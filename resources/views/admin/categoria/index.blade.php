@@ -14,7 +14,7 @@
         <div class="card">
             <div class="card-header">
                     
-                    <i class="fa fa-edit"></i>Categorias   
+                    <i class="fa fa-edit"></i>Repertorio
                
             </div>
         <div class="card-body">
@@ -35,8 +35,8 @@
                                         data-toggle="modal" data-target="#myModal">
                                             <span class="fa fa-plus-square"></span> Nuevo
                                         </a>     
-                                        <img src="img/food_icon.svg" alt="My SVG Icon">
-                                </div>
+                                  <!--      <img src="img/food_icon.svg" alt="My SVG Icon">
+                                  -->    </div>
                             </div>
                         </div>
                     @include('layouts.messages')     
@@ -61,14 +61,16 @@
                                 <tr role="row" class="odd">
                                     <td class="sorting_1">{{$cat->nombre}}</td>
                                     <td>
-                                            <span class="badge badge-success" style="flex: 1 1 auto;
+                                       <!--     <span class="badge badge-success" style="flex: 1 1 auto;
                                                 font-size: 12px;
                                                 padding: 10px;
                                                 text-align: center;
                                                 font-size: 24px;
                                                 margin-bottom: 10px;
-                                                margin-top: 5px;">
-                                            <i class="fa {{$cat->icono}}"></i></span>
+                                          margin-top: 5px;"> -->  
+                                 <img style="width: 30px;
+                                 height: 30px;" src='svg/education/{{$cat->icono}}.svg'>
+                                        <!--</span>-->
                                     </td>
                                     <td>    
                                         <a href="" class="btn btn-warning btn-xs " data-backdrop="static" data-keyboard="false"

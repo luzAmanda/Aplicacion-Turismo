@@ -35,24 +35,32 @@
             </li>
           @endrole 
           
-            <li class="nav-title">Compenentes</li>
+            
             @role('SuperAdmin')
+            <li class="nav-title">Seguridad</li>
             <li class="nav-item nav-dropdown">
               <a class="nav-link" href="usuario-admin">
-                <i class="nav-icon icon-cursor"></i> Usuario</a>
+                <i class="nav-icon icon-cursor"></i> Usuarios</a>
               <ul class="nav-dropdown-items">
-             
+              </ul>
+            </li>
+          
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link" href="usuario-admin">
+                <i class="nav-icon icon-cursor"></i> Roles</a>
+              <ul class="nav-dropdown-items">
+              </ul>
+            </li>
+            <li class="nav-title">Administrativa</li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link" href="usuario-admin">
+                <i class="nav-icon icon-cursor"></i>Datos del sector</a>
+              <ul class="nav-dropdown-items">
               </ul>
             </li>
             @endrole
             @role('Administrador')
-            <li class="nav-item nav-dropdown">
-              <a class="nav-link" href="detalle">
-                <i class="nav-icon icon-cursor"></i>Productos /Servicios</a>
-              <ul class="nav-dropdown-items">
-             
-              </ul>
-            </li>
+          
             
             <li class="nav-item nav-dropdown">
               <a class="nav-link" href="tiponegocio">

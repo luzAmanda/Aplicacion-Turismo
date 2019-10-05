@@ -1,0 +1,1 @@
+ education = [ "abacus", "acoustic-guitar", "alarm-clock"];         

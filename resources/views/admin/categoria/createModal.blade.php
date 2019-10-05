@@ -31,7 +31,7 @@
                                                     title="Ajústese al formato requerido."
                                                     required autofocus>
                                                 </div>
-                                                <small class="text-muted">Ejemplo: Servicios</small>
+                                             
                                         </fieldset>
                                         <fieldset class="form-group">
                                             <label>Icono:</label>
@@ -41,10 +41,26 @@
                                                             <i class="fa fa-list"></i>
                                                         </span>
                                                     </span>
-                                                
-                                                    <div class="picker1"> 
-                                                        <input type="text" readonly class="form-control inputpicker1" id="icono" name="icono" placeholder="Haz click aqu&iacute; para elegir tu icono preferido...">
-                                                    </div>
+                                                    
+                                                        <div class="picker3"> 
+                                                           {{--  <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                            <select id="mySelect" class="select" onclick="myFunction()">
+                                                                              <option>          Seleccione tema    </option>
+                                                                                <option value="1">Education</option>
+                                                                                <option value="2">Bilogy</option>
+                                                                                <option value="3">Restaunrant</option>
+                                                                            </select>
+                                                                    </div>
+                                                                <div class="col-lg-6"> --}}
+                                                                    <input type="text" readonly class="form-control inputpicker3" id="icono" name="icono" placeholder="Haz click aqu&iacute; para elegir tu icono preferido...">
+                                                               {{--  </div>
+                                                               
+                                                            </div> --}}
+
+                                                        </div>
+                                                    
+
                                                
                                                 </div>
                                         </fieldset>          

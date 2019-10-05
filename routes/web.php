@@ -30,7 +30,7 @@ Route::get('/home', function () {
       return redirect('/login');
 
 });
-
+Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware'=> ['role:SuperAdmin']], function () {
       Route::get('SuperAdmin-home', 'SuperAdmin1\SuperAdmin1Controller@index');
@@ -60,11 +60,11 @@ Route::group(['middleware' => ['auth']], function () {
     });
   });
 
-Route::get('/categoria/action', 'Admin\CategoriaController@action')->name('categoria.action');
+//Route::get('/categoria/action', 'Admin\CategoriaController@action')->name('categoria.action');
 
 
 
-Auth::routes();
+
 
 
 

@@ -90,7 +90,7 @@ $(".picker1").each(function()
   {
     var iconos="<ul>";
     for (var i=0; i<icos.length; i++) { iconos+="<li><i data-valor='"+icos[i]+"' rel='"+icos[i]+"' class='fa "+icos[i]+"'></i></li>"; }
-    iconos+="</ul>";
+   iconos+="</ul>";
   }
   console.log(icos.length);
   div.append("<div class='oculto1'><input type='text' placeholder='Encuentra tu icono...'>"+iconos+"</div>");
@@ -115,7 +115,92 @@ $(".picker1").each(function()
 });
 });
 </script>
+{{-- <script>
+  $(document).ready(function()
+  {
+  $(".picker3").each(function()
+  {
+    div=$(this);
+    if (icos3)
+    {
 
+      var iconos="<ul>";
+ for (var i=0; i<icos3.length; i++) { iconos+="<li><img data-valor='"+icos3[i]+"' rel='"+icos3[i]+"' src='svg/education/"+icos3[i]+".svg'></li>"; }
+     iconos+="</ul>";
+    }
+    console.log(icos3.length);
+    div.append("<div class='oculto3'><div class='row'><div class='col-lg-6'><input type='text' placeholder='Encuentra tu icono...'></div><div class='col-lg-6'><select id='mySelect' onclick='myFunction()'><option>Seleccione</option><option value='1'>Educación</option><option value='2'>Biología</option></select></div></div>"+iconos+"</div>");
+ $(".inputpicker3").click(function()
+    {
+      $(".oculto3").fadeToggle("fast");
+    });
+    $(document).on("click",".oculto3 ul li",function()
+    {
+      $(".inputpicker3").val($(this).find("img").data("valor"));
+      $(".oculto3").fadeToggle("fast");
+    });
+    $(document).on("keyup",".oculto3 input[type=text]",function()
+    {
+      var value=$(this).val();
+      $(".oculto3 ul li img").each(function() 
+      {
+        if ($(this).attr("rel").search(value) > -1) $(this).closest("li").show();
+        else $(this).closest("li").hide();
+      });
+    });
+  });
+  });
+  </script>
+   --}}
+
+   <script>
+    // function myFunction() {
+    //  var x = document.getElementById("mySelect").value;
+   //   document.getElementById("demo").innerHTML = x;
+    // }
+    
+     $(document).ready(function()
+     {
+     $(".picker3").each(function()
+     {
+     
+    // var x = document.getElementById("mySelect").value;
+   //   document.getElementById("demo").innerHTML = x;
+    // }
+      div=$(this);
+    //  div.append("<div class='oculto3'><div class='col-lg-6'><select id='mySelect' onclick='myFunction()'><option>Seleccione</option><option value='1'>Educación</option><option value='2'>Biología</option></select></div></div>");
+          if (icos3)
+          {
+      
+            var iconos="<ul>";
+            for (var i=0; i<icos3.length; i++) { iconos+="<li><img data-valor='"+icos3[i]+"' rel='"+icos3[i]+"' src='svg/education/"+icos3[i]+".svg'></li>"; }
+                iconos+="</ul>";
+          }
+          console.log(icos3.length);
+          div.append("<div class='oculto3'><div class='row'><div class='col-lg-6'><input type='text' placeholder='Encuentra tu icono...'></div></div>"+iconos+"</div>");
+          $(".inputpicker3").click(function()
+              {
+                $(".oculto3").fadeToggle("fast"); 
+              });
+              $(document).on("click",".oculto3 ul li",function()
+              {
+                $(".inputpicker3").val($(this).find("img").data("valor"));
+                $(".oculto3").fadeToggle("fast");
+              });
+              $(document).on("keyup",".oculto3 input[type=text]",function()
+              {
+                var value=$(this).val();
+                $(".oculto3 ul li img").each(function() 
+                {
+                  if ($(this).attr("rel").search(value) > -1) $(this).closest("li").show();
+                  else $(this).closest("li").hide();
+                });
+               });
+             });
+            });
+  
+    </script>
+     
 
 
 

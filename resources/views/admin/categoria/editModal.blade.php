@@ -29,12 +29,8 @@
                                                         </span>
                                                     </span>
                                                     <input class="form-control" id="nombre" name="nombre" type="text" 
-                                                    maxlength="100" minlength="5"
-                                                    pattern="[A-Za-zÑñÁáÉéÍíÓóÚúÜü]+"
-                                                    oninvalid="setCustomValidity('Sólo se admiten letras: Tamaño minimo:3. Tamaño maximo:100')"
-                                                    oninput="setCustomValidity('')"
-                                                    title="Ajústese al formato requerido."
-                                                    required autofocus>
+                                                 
+                                                    >
                                                 </div>
                                             
                                         </fieldset>
@@ -47,9 +43,9 @@
                                                            
                                                         </span>
                                                     </span>
-                                                    <div class="picker2">
+                                                    <div class="picker3">
                                                           
-                                                            <input type="text" readonly class="form-control inputpicker2" id="icono" name="icono">
+                                                            <input type="text" readonly class="form-control inputpicker3" id="icono" name="icono">
                                                      
                                                         </div>
                                                 </div>

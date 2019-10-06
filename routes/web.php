@@ -33,19 +33,20 @@ Route::get('/home', function () {
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware'=> ['role:SuperAdmin']], function () {
-      Route::get('SuperAdmin-home', 'SuperAdmin1\SuperAdmin1Controller@index');
-      Route::resource('usuario-admin', 'SuperAdmin1\UsuarioController');
+      Route::get('SuperAdmin-home', 'SuperAdmin\SuperAdminController@index');
+      Route::resource('rol', 'SuperAdmin\RolController');
+      Route::resource('usuario-admin', 'SuperAdmin\UsuarioController');
     //  Route::resource('usuario', 'SuperAdmin1\UsuarioController');
 
     });  
     Route::group(['middleware'=> ['role:Administrador']], function () {
-      Route::get('Admin-home', 'SuperAdmin\SuperAdminController@index');
-      Route::resource('tiponegocio', 'SuperAdmin\TipoNegocioController');
-      Route::resource('negocio', 'SuperAdmin\NegocioController');
-      Route::resource('sucursal', 'SuperAdmin\SucursalController');
-      Route::resource('usuario', 'SuperAdmin\UsuarioController');
+      Route::get('Admin-home', 'Admin\AdminController@index');
+      Route::resource('tiponegocio', 'Admin\TipoNegocioController');
+      Route::resource('negocio', 'Admin\NegocioController');
+      Route::resource('sucursal', 'Admin\SucursalController');
+      Route::resource('usuario', 'Admin\UsuarioController');
 
-      Route::get('negocio/{id}', 'SuperAdmin\NegocioController@index');
+      Route::get('negocio/{id}', 'Admin\NegocioController@index');
     });
 
     Route::group(['middleware'=> ['role:Propietario']], function () {
@@ -54,13 +55,13 @@ Route::group(['middleware' => ['auth']], function () {
     });  
 
     Route::group(['middleware'=> ['role:Encargado']], function () {
-      Route::get('Encargado-home', 'Admin\AdminController@index');
-      Route::resource('categoria', 'Admin\CategoriaController');
-      Route::resource('detalle', 'Admin\DetalleController');
+      Route::get('Encargado-home', 'Encargado\EncargadoController@index');
+      Route::resource('categoria', 'Encargado\CategoriaController');
+      Route::resource('detalle', 'Encargado\DetalleController');
     });
   });
 
-//Route::get('/categoria/action', 'Admin\CategoriaController@action')->name('categoria.action');
+Route::get('/categoria/action', 'Admin\CategoriaController@action')->name('categoria.action');
 
 
 

@@ -1,4 +1,4 @@
-{!! Form::open(array('url'=>'/usuario-admin','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
+{!! Form::open(array('url'=>'/rol','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
     <label >
        <i   class="fa fa-search"></i>
     </label>

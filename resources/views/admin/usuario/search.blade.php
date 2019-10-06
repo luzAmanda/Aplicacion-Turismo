@@ -1,4 +1,4 @@
-{!! Form::open(array('url'=>'/usuario-admin','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
+{!! Form::open(array('url'=>'/usuario','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
     <label >
        <i   class="fa fa-search"></i>
     </label>
@@ -7,6 +7,4 @@
                 <input type="text" name="searchText" id="search" class="form-control"  value="" placeholder="Search.. " />
             </div>
         </label>
-
-
 {{Form::close()}}

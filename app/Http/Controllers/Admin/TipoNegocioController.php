@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\SuperAdmin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -32,7 +32,7 @@ class TipoNegocioController extends Controller
       //  $categorias=Categoria::where('estado','=',1)->orderBy('created_at')->paginate($pag);
       
      // return view('admin.categoria.index', compact('categorias'));
-     return view('superAdmin.tipoNegocio.index',["tipoNegocios" =>$tipoNegocios,
+     return view('admin.tipoNegocio.index',["tipoNegocios" =>$tipoNegocios,
      "sectores"=>$sectores,
    ]);
 

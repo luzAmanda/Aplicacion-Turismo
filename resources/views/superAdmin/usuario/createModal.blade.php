@@ -11,7 +11,8 @@
                 
             </div>
             {!! Form::open(array('action'=>array('SuperAdmin\UsuarioController@store'), 'method'=>'POST','files' => 'true'))!!}
-                <div class="modal-body">
+            
+            <div class="modal-body">
                         <div class="card">
                                 <div class="alert alert-danger" style="display:none"></div>
                                 <div class="card-body">
@@ -30,7 +31,7 @@
                                         <fieldset class="form-group">
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <label>Nombre:</label>
+                                                    <label>Nombres:</label>
                                                         <div class="input-group">
                                                             <span class="input-group-prepend">
                                                                 <span class="input-group-text">
@@ -42,7 +43,7 @@
                                                         </div>  
                                                 </div>
                                                 <div class="col-lg-6">
-                                                        <label>Apellido:</label>
+                                                        <label>Apellidos:</label>
                                                             <div class="input-group">
                                                                 <span class="input-group-prepend">
                                                                     <span class="input-group-text">

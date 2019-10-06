@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Encargado;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,8 +28,8 @@ class CategoriaController extends Controller
     
       //  $categorias=Categoria::where('estado','=',1)->orderBy('created_at')->paginate($pag);
       
-     // return view('admin.categoria.index', compact('categorias'));
-     return view('admin.categoria.index',["categorias" =>$categorias,"searchText" => $query,"pag" => $pag]);
+     // return view('encargado.categoria.index', compact('categorias'));
+     return view('encargado.categoria.index',["categorias" =>$categorias,"searchText" => $query,"pag" => $pag]);
 
       //return view('usuarios.index', ["usuarios"  => $usuarios,"searchText" => $query,"pag" => $pag]);    
         } 
@@ -40,11 +40,11 @@ class CategoriaController extends Controller
 
     public function create()
     {
-        return view('admin.categoria.create');
+        return view('encargados.categoria.create');
     }
     public function createModal()
     {
-        return view('admin.categoria.m');
+        return view('encargado.categoria.m');
     }
 
     /**

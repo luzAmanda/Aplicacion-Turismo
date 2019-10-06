@@ -1,16 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\SuperAdmin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\TipoNegocio;
+use App\Sucursal;
 use App\Negocio;
-use App\Http\Requests\NegocioRequest;
+use App\Http\Requests\SucursalRequest;
+use Intervention\Image\ImageManagerStatic as Image;
+
 use DB;
 
-class NegocioController extends Controller
+class SucursalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,13 +23,13 @@ class NegocioController extends Controller
     public function index(Request $request)
     {
         $cate = trim($request->get('cate'));
-        $tipoNegocios=TipoNegocio::all();
+        $negocios=Negocio::all();
         if($cate!==""){
-            $negocios= Negocio::where('id_tiponegocio',$cate)->get();
+            $sucursales= Sucursal::where('id_negocio',$cate)->where('estado',1)->get();
         }
         
         
-        return view('superAdmin.negocio.index', compact('tipoNegocios','negocios','cate'));
+        return view('admin.sucursal.index', compact('negocios','sucursales','cate'));
 
     }
 
@@ -46,23 +49,38 @@ class NegocioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(NegocioRequest $request)
+    public function store(SucursalRequest $request)
     {
         try{
-            $neg = new Negocio;
+            $neg = new Sucursal;
             $neg->nombre=trim($request->get('nombre'));
             $cate=trim($request->get('cate'));
-            $neg->descripcion=trim($request->get('descripcion'));
-           
+            $neg->celular=trim($request->get('celular'));
+            $neg->telefono=trim($request->get('telefono'));
+            $neg->direccion=trim($request->get('direccion'));
+            $neg->longitud=trim($request->get('longitud'));
+            $neg->latitud=trim($request->get('latitud'));
             $neg->estado=1;
-            
-            $neg->id_tiponegocio=$cate;
+            $neg->id_negocio=$cate;
           
            
            $neg->save();
             //Convertir la foto a Binario
+            if ($request->hasFile('foto')) {
+                $image = $request->file( 'foto' );
+                $imageType = $image->getClientOriginalExtension();
+                $imageStr = (string) Image::make( $image )->
+                                        resize( 300, null, function ( $constraint ) {
+                                            $constraint->aspectRatio();
+                                        })->encode( $imageType );
+                $neg->foto = base64_encode( $imageStr );
+                $neg->tipo_foto = $imageType;
+                $neg->save();
+            }else{
+                return back()->withErrors(['exception'=>"Seleccione una imagen"])->withInput();
+            }
           
-            return redirect('negocio?cate='.$cate)->with('success','Negocio registrado con exito');
+            return redirect('sucursal?cate='.$cate)->with('success',' Sucursal registrado con exito');
         }catch(\Exception | QueryException $e){
             return back()->withErrors(['exception'=>$e->getMessage()])->withInput();
         }
@@ -97,23 +115,23 @@ class NegocioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(NegocioRequest $request)
+    public function update(SucursalRequest $request)
     {
         try{
             info($request);
-            $neg=Negocio::findOrFail($request->id_negocio);
+            $neg=Sucursal::findOrFail($request->id_sucursal);
             $cate=trim($request->get('cate'));
             $neg->nombre=trim($request->get('nombre'));
             $neg->descripcion=trim($request->get('descripcion'));
             $neg->update();
-            return redirect('negocio?cate='.$cate)->with('success','Negocio Actualizado con exito');
+            return redirect('sucursal?cate='.$cate)->with('success','Sucursal Actualizado con exito');
            
           //  return redirect('negocio?cate='.$cate.'/regions')->with('success','Negocio Actualizado con exito');
         }catch(\Exception | QueryException $e){
             return back()->withErrors(['exception'=>$e->getMessage()])->withInput();
         }
     }
-    public function updateModal(NegocioRequest $request)
+    public function updateModal(SucursalRequest $request)
     {
         try{
             dd($request);
@@ -141,12 +159,12 @@ class NegocioController extends Controller
     public function destroy(Request $request,$id)
     {
         try {
-            $neg=Negocio::findOrFail($id);
+            $neg=Sucursal::findOrFail($id);
             $cate=trim($request->get('cate'));
             $neg->nombre=trim($request->get('nombre'));
            $neg->estado=0;
            $neg->update();
-            return redirect('negocio?cate='.$cate)->with('success', 'Negocio eliminado');
+            return redirect('sucursal?cate='.$cate)->with('success', 'Sucursal eliminado');
         } catch (Exception $e) {
             return back()->withErrors(['exception' => $e->getMessage()]);
         }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Encargado;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,7 +26,7 @@ class DetalleController extends Controller
         }
         
         
-        return view('admin.detalle.index', compact('categorias','detalles','cate'));
+        return view('encargado.detalle.index', compact('categorias','detalles','cate'));
 
     }
 
@@ -37,7 +37,7 @@ class DetalleController extends Controller
      */
     public function create()
     {
-        return view('admin.detalle.create');
+        return view('encargado.detalle.create');
     }
 
     /**

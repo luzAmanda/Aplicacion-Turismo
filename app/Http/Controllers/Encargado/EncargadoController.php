@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\SuperAdmin1;
+namespace App\Http\Controllers\Encargado;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SuperAdmin1Controller extends Controller
+class EncargadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,9 @@ class SuperAdmin1Controller extends Controller
      */
     public function index()
     {
-    return view('superAdmin1.home');
+        return view('encargado.home');
     }
-    
-    public function index1()
-    {
-    return view('superAdmin1.home');
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +24,7 @@ class SuperAdmin1Controller extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

@@ -16,7 +16,11 @@ class SuperAdminController extends Controller
     {
     return view('superAdmin.home');
     }
-
+    
+    public function index1()
+    {
+    return view('superAdmin.home');
+    }
     /**
      * Show the form for creating a new resource.
      *

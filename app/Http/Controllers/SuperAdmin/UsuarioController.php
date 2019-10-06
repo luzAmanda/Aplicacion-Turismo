@@ -4,10 +4,10 @@ namespace App\Http\Controllers\SuperAdmin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
+use App\Role;
 
 use App\Http\Requests\UsuarioRequest;
-
-use App\User;
 
 class UsuarioController extends Controller
 {
@@ -16,16 +16,22 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        try{
-            $usuarios=User::where('estado',1)->orderBy('updated_at')->get();
-           // if($usuarios==!""){
-                view('superAdmin.tiponegocio.index',compact('usuarios'));
-           // }
-        }catch(\Exception | QueryException $e){
-            return back()->withErrors(['exception'=>$e->getMessage()])->withInput();
-        }
+    /* try{
+        if ($request) {
+            $pag = trim($request->get('pag'));
+            if ($pag== "") {  
+                $pag=4;
+            } 
+         $usuarios=User::all()->paginate($pag);
+            return view('superAdmin1.usuario.index', ["usuarios" =>$usuarios,"pag" => $pag]);
+      } 
+        }catch (\Exception $e) {
+            return back()->withErrors(['exception' => $e->getMessage()])->withInput();
+        } */
+        $usuarios=User::all();
+        return view('superAdmin.usuario.index',compact('usuarios'));
     }
 
     /**
@@ -44,6 +50,14 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function store(UsuarioRequest $request)
     {
         
@@ -57,22 +71,15 @@ class UsuarioController extends Controller
             $neg->telefono=trim($request->get('telefono'));
             $neg->direccion=trim($request->get('direccion'));
             $neg->correo=trim($request->get('correo'));
+            $neg->password=('12345678');
             $neg->estado=1;
-            return redirect('usuario')->with('success',' Usuario registrado con exito');
+            $neg->save();
+            
+            $neg->roles()->attach(Role::where('name', 'Administrador')->first());
+            return redirect('usuario-admin')->with('success',' Usuario registrado con exito');
         }catch(\Exception | QueryException $e){
             return back()->withErrors(['exception'=>$e->getMessage()])->withInput();
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -93,26 +100,9 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UsuarioRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        try{
-            info($request);
-            $neg=Usuario::findOrFail($request->id_usuario);
-            $neg->nombre=trim($request->get('cedula'));
-            $neg->nombre=trim($request->get('nombre'));
-            $neg->nombre=trim($request->get('apellido'));
-         //   $cate=trim($request->get('cate'));
-            $neg->celular=trim($request->get('celular'));
-            $neg->telefono=trim($request->get('telefono'));
-            $neg->direccion=trim($request->get('direccion'));
-            $neg->correo=trim($request->get('correo'));
-            $neg->update();
-            return redirect('usuario')->with('success','Usuario Actualizado con exito');
-           
-          //  return redirect('negocio?cate='.$cate.'/regions')->with('success','Negocio Actualizado con exito');
-        }catch(\Exception | QueryException $e){
-            return back()->withErrors(['exception'=>$e->getMessage()])->withInput();
-        }
+        //
     }
 
     /**
@@ -121,17 +111,8 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy($id)
     {
-        try {
-            $neg=Usuario::findOrFail($id);
-           // $cate=trim($request->get('cate'));
-            $neg->nombre=trim($request->get('nombre'));
-           $neg->estado=0;
-           $neg->update();
-            return redirect('usuario')->with('success', 'Usuario eliminado');
-        } catch (Exception $e) {
-            return back()->withErrors(['exception' => $e->getMessage()]);
-        }
+        //
     }
 }

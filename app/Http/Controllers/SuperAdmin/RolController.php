@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\SuperAdmin1;
+namespace App\Http\Controllers\SuperAdmin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,7 +9,7 @@ use App\Role;
 
 use App\Http\Requests\UsuarioRequest;
 
-class UsuarioController extends Controller
+class RolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,20 +18,9 @@ class UsuarioController extends Controller
      */
     public function index(Request $request)
     {
-    /* try{
-        if ($request) {
-            $pag = trim($request->get('pag'));
-            if ($pag== "") {  
-                $pag=4;
-            } 
-         $usuarios=User::all()->paginate($pag);
-            return view('superAdmin1.usuario.index', ["usuarios" =>$usuarios,"pag" => $pag]);
-      } 
-        }catch (\Exception $e) {
-            return back()->withErrors(['exception' => $e->getMessage()])->withInput();
-        } */
-        $usuarios=User::all();
-        return view('superAdmin1.usuario.index',compact('usuarios'));
+ 
+        $roles=Role::all();
+        return view('superAdmin.role.index',compact('roles'));
     }
 
     /**
@@ -58,10 +47,10 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function store(UsuarioRequest $request)
+    public function store(Request $request)
     {
         
-        try{
+      /*  try{
             $neg = new User;
             $neg->cedula=trim($request->get('cedula'));
             $neg->nombre=trim($request->get('nombre'));
@@ -80,6 +69,7 @@ class UsuarioController extends Controller
         }catch(\Exception | QueryException $e){
             return back()->withErrors(['exception'=>$e->getMessage()])->withInput();
         }
+        */
     }
 
     /**

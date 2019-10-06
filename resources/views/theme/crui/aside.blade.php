@@ -46,7 +46,7 @@
             </li>
           
             <li class="nav-item nav-dropdown">
-              <a class="nav-link" href="usuario-admin">
+              <a class="nav-link" href="rol">
                 <i class="nav-icon icon-cursor"></i> Roles</a>
               <ul class="nav-dropdown-items">
               </ul>
@@ -60,8 +60,6 @@
             </li>
             @endrole
             @role('Administrador')
-          
-            
             <li class="nav-item nav-dropdown">
               <a class="nav-link" href="tiponegocio">
                 <i class="nav-icon icon-cursor">

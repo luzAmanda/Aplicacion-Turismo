@@ -53,7 +53,7 @@
             </li>
             <li class="nav-title">Administrativa</li>
             <li class="nav-item nav-dropdown">
-              <a class="nav-link" href="usuario-admin">
+              <a class="nav-link" href="sector">
                 <i class="nav-icon icon-cursor"></i>Datos del sector</a>
               <ul class="nav-dropdown-items">
               </ul>

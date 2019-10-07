@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
       Route::get('SuperAdmin-home', 'SuperAdmin\SuperAdminController@index');
       Route::resource('rol', 'SuperAdmin\RolController');
       Route::resource('usuario-admin', 'SuperAdmin\UsuarioController');
+      Route::resource('sector', 'SuperAdmin\SectorController');
     //  Route::resource('usuario', 'SuperAdmin1\UsuarioController');
 
     });  

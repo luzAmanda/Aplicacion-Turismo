@@ -4,9 +4,9 @@
     @endsection
    
      @section("contenid")
-     @include('superAdmin/sucursal/createModal')
-     @include('superAdmin/sucursal/editModal')
-     @include('superAdmin/sucursal/delete')
+     @include('admin/sucursal/createModal')
+     @include('admin/sucursal/editModal')
+     @include('admin/sucursal/delete')
   
      
 <div><br></div>
@@ -17,43 +17,55 @@
             </div>
             <div class="card-body">
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-
                     <div class="row">
-                            <div class="col-lg-4">
-                                </div> 
+                        <div class="col-lg-4">
+                                <fieldset class="form-group" data-select2-id="152">
+                                        <label>Seleccione Sector</label>
+                                        <select class="form-control select2-single select2-hidden-accessible" id="select2-1" data-select2-id="select2-1" tabindex="-1" aria-hidden="true"
+                                        onchange="javascript:handleSelect3(this)">
+                                            <option data-select2-id="141" disabled >Seleccione sector.. </option>
+                                            @foreach($sectores as $tn)
+                                                <option data-select2-id="141" value="sucursal?cate1={{$tn->id_sector}}"
+                                                        <?php  if ($cate1== $tn->id_sector)  {  echo 'selected'; }?>
+                                                    >{{$tn->nombre}}</option>
+                                            @endforeach
+                                        </select><span class="select2 select2-container select2-container--bootstrap select2-container--below select2-container--focus" dir="ltr" data-select2-id="140" style="width: 487.5px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-select2-1-container"><span class="select2-selection__rendered" id="select2-select2-1-container" role="textbox" aria-readonly="true" title="Option 3">
+                                                   </span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                </fieldset>
+                        </div> 
+                        <div class="col-lg-4">
+                                <fieldset class="form-group" data-select2-id="152">
+                                        <label>Seleccione Tipo de negocio</label>
+                                        <select class="form-control select2-single select2-hidden-accessible" id="select2-1" data-select2-id="select2-1" tabindex="-1" aria-hidden="true"
+                                        onchange="javascript:handleSelect3(this)">
+                                            <option data-select2-id="141"  >Restaurante</option>
+                                           
+                                        </select><span class="select2 select2-container select2-container--bootstrap select2-container--below select2-container--focus" dir="ltr" data-select2-id="140" style="width: 487.5px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-select2-1-container"><span class="select2-selection__rendered" id="select2-select2-1-container" role="textbox" aria-readonly="true" title="Option 3">
+                                                   </span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                </fieldset>
+
+                        </div>    
                         <div class="col-lg-4">
                             <fieldset class="form-group" data-select2-id="152">
                                     <label>Seleccione Pyme</label>
                                     <select class="form-control select2-single select2-hidden-accessible" id="select2-1" data-select2-id="select2-1" tabindex="-1" aria-hidden="true"
                                     onchange="javascript:handleSelect3(this)">
                                         <option data-select2-id="141" disabled >Seleccione.. </option>
-                                   
                                         @foreach($negocios as $tn)
-
                                             <option data-select2-id="141" value="sucursal?cate={{$tn->id_negocio}}"
                                                     <?php  if ($cate== $tn->id_negocio)  {  echo 'selected'; }?>
                                                 >{{$tn->nombre}}</option>
-                                   
                                         @endforeach
                                     </select><span class="select2 select2-container select2-container--bootstrap select2-container--below select2-container--focus" dir="ltr" data-select2-id="140" style="width: 487.5px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-select2-1-container"><span class="select2-selection__rendered" id="select2-select2-1-container" role="textbox" aria-readonly="true" title="Option 3">
                                                </span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
                             </fieldset>
                         </div>
-                        
-                        <div class="col-lg-4">
-                            </div>    
-
-
-
-
                     </div> 
-                    
-                    
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
                             <div id="DataTables_Table_0_filter" class="dataTables_filter">
 
-                                    @include('superAdmin/sucursal.search')
+                                    @include('admin/sucursal.search')
                            
                             </div>
                         </div>

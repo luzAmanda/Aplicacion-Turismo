@@ -4,8 +4,8 @@
     @endsection
    
      @section("contenid")
-     @include('admin/detalle/createModal')
-     @include('admin/detalle/delete')
+     @include('encargado/detalle/createModal')
+     @include('encargado/detalle/delete')
   
      
 <div><br></div>
@@ -52,7 +52,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div id="DataTables_Table_0_filter" class="dataTables_filter">
 
-                                    @include('admin/detalle.search')
+                                    @include('encargado/detalle.search')
                            
                             </div>
                         </div>

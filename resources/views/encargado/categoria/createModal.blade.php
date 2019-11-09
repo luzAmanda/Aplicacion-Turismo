@@ -10,7 +10,7 @@
                 </button>
                 
             </div>
-            {!! Form::open(array('action'=>array('Admin\CategoriaController@store'), 'method'=>'POST','files' => 'true'))!!}
+            {!! Form::open(array('action'=>array('Encargado\CategoriaController@store'), 'method'=>'POST','files' => 'true'))!!}
                 <div class="modal-body">
                         <div class="card">
                                 <div class="alert alert-danger" style="display:none"></div>

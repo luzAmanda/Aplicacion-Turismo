@@ -47,9 +47,9 @@
                                                            
                                                         </span>
                                                     </span>
-                                                    <div class="picker2">
+                                                    <div class="picker3">
                                                           
-                                                            <input type="text" readonly class="form-control inputpicker2" id="icono" name="icono">
+                                                            <input type="text" readonly class="form-control inputpicker3" id="icono" name="icono">
                                                      
                                                         </div>
                                                 </div>

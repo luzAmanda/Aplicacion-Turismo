@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\TipoNegocio;
 use App\Sucursal;
 use App\Negocio;
+use App\Sector;
 use App\Http\Requests\SucursalRequest;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -23,13 +24,38 @@ class SucursalController extends Controller
     public function index(Request $request)
     {
         $cate = trim($request->get('cate'));
+        $cate1 = trim($request->get('cate1'));
+        $sectores=Sector::all();
         $negocios=Negocio::all();
-        if($cate!==""){
+        
+        if($cate!=="")
+        {
             $sucursales= Sucursal::where('id_negocio',$cate)->where('estado',1)->get();
         }
         
         
-        return view('admin.sucursal.index', compact('negocios','sucursales','cate'));
+        return view('admin.sucursal.index', compact('negocios','sucursales','cate','cate1','sectores'));
+        $cate = trim($request->get('cate'));
+        $cate1 = trim($request->get('cate1'));
+      /*  // dd($cate);
+        $cate1 = trim($request->get('cate1'));
+        $sectores=Sector::all();
+        
+     //   $tipoNegocios=TipoNegocio::where('id_tiponegocio',1)->get();
+          */
+        if($cate1!==""){
+            $negocios= Negocio::where('id_tiponegocio',$cate1)->get();
+        }   
+      //  return view('admin.negocio.index', compact('negocios','sectores','cate','cate1'));
+      
+        $sectorData['data'] = Page::getSector();
+      
+        // Load index view
+      //  dd($sectorData);
+     // session()->put('forms.tnegocio', $request->get('tnegocio'));
+     // dd( session()->put('forms.tnegocio', $request->get('tnegocio')));
+        return view('admin.negocio.index', compact('negocios','sectorData','cate','cate1'));
+        
 
     }
 

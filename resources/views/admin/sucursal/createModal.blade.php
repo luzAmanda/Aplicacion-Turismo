@@ -7,7 +7,7 @@
                      <span aria-hidden="true">×</span>
                 </button>
             </div>
-            {!! Form::open(array('action'=>'SuperAdmin\SucursalController@store', 'method'=>'POST','files' => 'true'))!!}
+            {!! Form::open(array('action'=>'Admin\SucursalController@store', 'method'=>'POST','files' => 'true'))!!}
  
             <div class="modal-body">
                         <div class="card">

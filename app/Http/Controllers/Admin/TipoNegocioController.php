@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Sector;
 use App\TipoNegocio;
 use App\Http\Requests\TipoNegocioRequest;
-
+use Illuminate\Support\Facades\Log;
 use DB;
 
 class TipoNegocioController extends Controller
@@ -18,22 +18,37 @@ class TipoNegocioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getTNegocios(Request $request){ 
+        if($request->ajax()){
+                Log::debug($request->sector_id);
+            $tnegocios=TipoNegocio::where('id_sector',$request->sector_id)->get();
+            foreach($tnegocios as $tnegocio){
+                $tnegociosArray[$tnegocio->id_tiponegocio]=$tnegocio->nombre;
+            }
+            return response()->json($tnegociosArray);
+        }
+    }
     public function index(Request $request)
     {
        try{
        
-        //    if($cate!==""){           
+        //    if($cate!==""){  
+            $pag = trim($request->get('pag'));
+            $cate1 = trim($request->get('cate1'));
+            if ($pag== "") {  
+                $pag=3;
+            }          
            $sectores=Sector::all();
-            $tipoNegocios=DB::table('tipo_negocio')->
+            $tipoNegocios=DB::table('tipo_negocio')->where('id_sector','=',$cate1)->
           where('estado','=',1)
-          ->orderBy('created_at','asc')
-            ->paginate(1);
+          ->orderBy('updated_at','asc')
+            ->paginate($pag);
       //  }
       //  $categorias=Categoria::where('estado','=',1)->orderBy('created_at')->paginate($pag);
       
      // return view('admin.categoria.index', compact('categorias'));
      return view('admin.tipoNegocio.index',["tipoNegocios" =>$tipoNegocios,
-     "sectores"=>$sectores,
+     "sectores"=>$sectores, "pag"=>$pag,"cate1"=>$cate1
    ]);
 
       //return view('usuarios.index', ["usuarios"  => $usuarios,"searchText" => $query,"pag" => $pag]);    

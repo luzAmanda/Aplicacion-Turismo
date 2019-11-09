@@ -5,22 +5,45 @@
    
      @section("contenid")
     
-    @include('superAdmin/tipoNegocio/createModal')
-    @include('superAdmin/tipoNegocio/editModal')
-    @include('superAdmin/tipoNegocio/delete')
+    @include('admin/tipoNegocio/createModal')
+    @include('admin/tipoNegocio/editModal')
+    @include('admin/tipoNegocio/delete')
     
 <div><br></div>
      <div class="animated fadeIn">
         <div class="card">
             <div class="card-header">    
-                    <i class="fa fa-edit"></i>Categoría-Negocio               
+                    <i class="fa fa-edit"></i>Sector-Tipo de negocio             
             </div>
         <div class="card-body">
             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                <div class="row">
+                        <div class="col-lg-4">
+                        </div> 
+                    <div class="col-lg-4">
+                            <fieldset class="form-group" data-select2-id="152">
+                                    <label>Seleccione Sector</label>
+                                    <select class="form-control select2-single select2-hidden-accessible" id="select2-1" data-select2-id="select2-1" tabindex="-1" aria-hidden="true"
+                                    onchange="javascript:handleSelect3(this)">
+                                        <option data-select2-id="141" disabled >Seleccione.. </option>
+                                        @foreach($sectores as $tn)
+                                            <option data-select2-id="141" value="tiponegocio?cate1={{$tn->id_sector}}"
+                                                    <?php  if ($cate1== $tn->id_sector)  {  echo 'selected'; }?>
+                                                >{{$tn->nombre}}</option>
+                                        @endforeach
+                                    </select><span class="select2 select2-container select2-container--bootstrap select2-container--below select2-container--focus" dir="ltr" data-select2-id="140" style="width: 487.5px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-select2-1-container"><span class="select2-selection__rendered" id="select2-select2-1-container" role="textbox" aria-readonly="true" title="Option 3">
+                                               </span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </fieldset>
+                    </div>
+                    <div class="col-lg-4">
+                    </div>
+                </div>    
+
+
                     <div class="row">
                             <div class="col-sm-12 col-md-6">    
                                     <div id="DataTables_Table_0_filter" class="dataTables_filter"> 
-                                    @include('superAdmin/tipoNegocio.search')
+                                    @include('admin/tipoNegocio.search')
                                     </div>     
                             </div>
                             <div class="col-sm-12 col-md-6">
@@ -41,12 +64,7 @@
                             <thead>
                                 <tr role="row">
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Nombre: activate to sort column ascending" style="width: 170px;">Nombre</th>
-                                    
-                                    
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Date registered: activate to sort column ascending" style="width: 201px;">icon</th>
-                                <!-- <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 88px;">Opción</th>
-                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 98px;">Status</th>
-                                -->
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 209px;">Opción</th>
                                 </tr>
                             </thead>
@@ -56,14 +74,7 @@
                                 <tr role="row" class="odd">
                                     <td class="sorting_1">{{$tn->nombre}}</td>
                                     <td>
-                                            <span class="badge badge-success" style="flex: 1 1 auto;
-                                                font-size: 12px;
-                                                padding: 10px;
-                                                text-align: center;
-                                                font-size: 24px;
-                                                margin-bottom: 10px;
-                                                margin-top: 5px;">
-                                            <i class="fa {{$tn->icono}}"></i></span>
+                                        <img style="width: 30px; height: 30px;" src='svg/education/{{$tn->icono}}.svg'>
                                     </td>
                                     <td>    
                                         <a href="" class="btn btn-warning btn-xs " data-backdrop="static" data-keyboard="false"
@@ -76,9 +87,11 @@
                                                     data-nombre="{{$tn->nombre}}" href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i>
                                         </a>
                                     
-
-                                        <a href="negocio?cate={{$tn->id_tiponegocio}}"
-                                                    class="btn  btn-outline-primary"><i class="fa fa-plus" aria-hidden="true">Agregar Negocios</i>
+                                       
+                                      <!-- <a  href="{{url('negocio1', ['cate' => $tn->id_tiponegocio, 'cate1' => $cate1])}}"
+                                         
+                                      -->       <a href="negocio?cate={{$tn->id_tiponegocio}}&cate1={{$cate1}}"
+                                                 class="btn  btn-outline-primary"><i class="fa fa-plus" aria-hidden="true">Agregar Negocios</i>
                                         </a>
                                     </td>
                                 </tr>

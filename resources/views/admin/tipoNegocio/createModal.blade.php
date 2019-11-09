@@ -10,7 +10,7 @@
                 </button>
                 
             </div>
-            {!! Form::open(array('action'=>array('SuperAdmin\TipoNegocioController@store'), 'method'=>'POST','files' => 'true'))!!}
+            {!! Form::open(array('action'=>array('Admin\TipoNegocioController@store'), 'method'=>'POST','files' => 'true'))!!}
                 <div class="modal-body">
                         <div class="card">
                                 <div class="alert alert-danger" style="display:none"></div>
@@ -42,8 +42,8 @@
                                                         </span>
                                                     </span>
                                                 
-                                                    <div class="picker1"> 
-                                                        <input type="text" readonly class="form-control inputpicker1" id="icono" name="icono" placeholder="Haz click aqu&iacute; para elegir tu icono preferido...">
+                                                    <div class="picker3"> 
+                                                        <input type="text" readonly class="form-control inputpicker3" id="icono" name="icono" placeholder="Haz click aqu&iacute; para elegir tu icono preferido...">
                                                     </div>
                                                
                                                 </div>

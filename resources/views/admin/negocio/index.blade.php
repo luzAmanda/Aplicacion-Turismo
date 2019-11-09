@@ -4,12 +4,13 @@
     @endsection
    
      @section("contenid")
-     @include('superAdmin/negocio/createModal')
-     @include('superAdmin/negocio/editModal')
-     @include('superAdmin/negocio/delete')
+     @include('admin/negocio/createModal')
+     @include('admin/negocio/editModal')
+     @include('admin/negocio/delete')
   
-     
+ 
 <div><br></div>
+
      <div class="animated fadeIn">
         <div class="card">
             <div class="card-header">
@@ -17,43 +18,65 @@
             </div>
             <div class="card-body">
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-
+                        <div class="panel-heading">
                     <div class="row">
+                       
+                        <div class="col-lg-2">
+                        </div>    
                             <div class="col-lg-4">
-                                </div> 
+                                    <fieldset class="form-group" data-select2-id="152">
+                                        <label>Seleccione Sector</label>
+                                          {{--  <select name="sector_id" class="form-control select2-single select2-hidden-accessible" id="sector" data-select2-id="select2-1" tabindex="-1" aria-hidden="true">    
+                                                <option data-select2-id="141" disabled >Seleccione.. </option>
+                                                    @foreach($sectores as $tn)
+                                                            <option data-select2-id="141" value="{{$tn->id_sector}}"
+                                                                >{{$tn->nombre}}
+                                                            </option>
+                                                        @endforeach
+                                            </select><span class="select2 select2-container select2-container--bootstrap select2-container--below select2-container--focus" dir="ltr" data-select2-id="140" style="width: 487.5px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-select2-1-container"><span class="select2-selection__rendered" id="select2-select2-1-container" role="textbox" aria-readonly="true" title="Option 3">
+                                                </span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                            --}}
+                                            <select id='sector' name='sector' class="form-control select2-single select2-hidden-accessible" dir="ltr" data-select2-id="select2-1" tabindex="-1" aria-hidden="true">
+                                                    <option value='0'>-- Select sector --</option>
+                                                    @foreach($sectorData['data'] as $sector)
+                                                      <option value='{{ $sector->id_sector }}' 
+                                                            <?php  if ($cate== $sector->id_sector)  {  echo 'selected'; }?>>{{ $sector->nombre }}</option>
+                                                    @endforeach
+                                            </select>   
+                                    </fieldset>
+                            </div> 
                         <div class="col-lg-4">
                             <fieldset class="form-group" data-select2-id="152">
-                                    <label>Seleccione Tipo de negocio</label>
-                                    <select class="form-control select2-single select2-hidden-accessible" id="select2-1" data-select2-id="select2-1" tabindex="-1" aria-hidden="true"
-                                    onchange="javascript:handleSelect2(this)">
-                                        <option data-select2-id="141" disabled >Seleccione.. </option>
-                                   
-                                        @foreach($tipoNegocios as $tn)
-
-                                            <option data-select2-id="141" value="negocio?cate={{$tn->id_tiponegocio}}"
-                                                    <?php  if ($cate== $tn->id_tiponegocio)  {  echo 'selected'; }?>
-                                                >{{$tn->nombre}}</option>
-                                   
-                                        @endforeach
-                                    </select><span class="select2 select2-container select2-container--bootstrap select2-container--below select2-container--focus" dir="ltr" data-select2-id="140" style="width: 487.5px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-select2-1-container"><span class="select2-selection__rendered" id="select2-select2-1-container" role="textbox" aria-readonly="true" title="Option 3">
-                                               </span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                               {{--<input name="idtn" value="{{$idtn}}" >--}}
+                                  <label>Seleccione Tipo de negocio</label>
+                                   {{--    <input name="tn" id="tn" value={{$cate}}>
+                                    <select id="tnegocio" name="tnegocio_id" 
+                                    class="form-control{{ $errors->has('tnegocio_id') ? ' is-invalid' : '' }}"  onchange="javascript:handleSelect3(this)"></select>
+                                    <input name="tn" id="tn" value={{$cate}}> --}}
+                                   <input name="tn" id="tn" value={{$cate1}} type="hidden"> 
+                                        <select id='tnegocio' name='tnegocio'  onchange="javascript:handleSelect3(this)" class="form-control select2-single select2-hidden-accessible" dir="ltr" data-select2-id="select2-1" tabindex="-1" aria-hidden="true">
+                                                <option value='0'>-- Select tipo de negocio --</option>
+                                        </select>
                             </fieldset>
                         </div>
-                        
-                        <div class="col-lg-4">
-                            </div>    
-
-
-
-
+                        <div class="col-lg-2">
+                            </div>  
+                          
+<script>
+                         //   window.onload=miFuncion;
+                           
+   
+    </script>
+                
+                      
                     </div> 
-                    
+                        </div>
                     
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
                             <div id="DataTables_Table_0_filter" class="dataTables_filter">
 
-                                    @include('superAdmin/tiponegocio.search')
+                                    @include('admin/tiponegocio.search')
                            
                             </div>
                         </div>

@@ -61,16 +61,14 @@
             @endrole
             @role('Administrador')
             <li class="nav-item nav-dropdown">
-              <a class="nav-link" href="tiponegocio">
-                <i class="nav-icon icon-cursor">
-                </i>Sector / Tipo de negocio</a>
+              <a class="nav-link" href="tiponegocio?cate1=1">
+                <i class="nav-icon icon-cursor"></i> Tipo de negocio</a>
               <ul class="nav-dropdown-items">
-             
+            
               </ul>
-              
             </li>
             <li class="nav-item nav-dropdown">
-              <a class="nav-link" href="negocio?cate=1">
+              <a class="nav-link" href="negocio?cate=1&cate1=1">
                 <i class="nav-icon icon-cursor"></i> Negocio</a>
               <ul class="nav-dropdown-items">
             
@@ -85,20 +83,19 @@
               </ul>
             </li>
             <li class="nav-item nav-dropdown">
-                <a class="nav-link" href="sucursal?cate=1">
-                  <i class="nav-icon icon-cursor"></i>Papelera de reciclaje</a>
-                <ul class="nav-dropdown-items">
-               
-                </ul>
-              </li>
-           
-            <li class="nav-item nav-dropdown">
                 <a class="nav-link" href="usuario">
                   <i class="nav-icon icon-user"></i>Usuario</a>
                 <ul class="nav-dropdown-items">
                
                 </ul>
-              </li>
+            </li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link" href="sucursal?cate=1">
+                <i class="nav-icon icon-cursor"></i>Papelera de reciclaje</a>
+              <ul class="nav-dropdown-items">
+             
+              </ul>
+            </li>
               @endrole  
               <!--
             <li class="nav-item">

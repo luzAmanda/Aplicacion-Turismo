@@ -5,16 +5,14 @@
           var icono = button.data('icono') 
           var id_categoria = button.data('id_categoria') 
           var modal = $(this)
-      
           modal.find(".modal-body #icon").html("<i class='fa "+icono+"'></i>");
-            
           modal.find('.modal-body #nombre').val(nombre)
           modal.find('.modal-body #icono').val(icono)
           modal.find('.modal-body #id_categoria').val(id_categoria)
         });
   </script>
       
-        <script type="text/javascript">
+  <script type="text/javascript">
          $(document).ready(function () {
           $('#modalDelete').on('show.bs.modal', function (event) {
               var button = $(event.relatedTarget);
@@ -25,13 +23,13 @@
               modal.find(".modal-content form").attr('action', action);
           });
         });
-        </script>
+  </script>
 
-      <script type="text/javascript">
+  <script type="text/javascript">
         function handleSelect(elm){
           window.location = elm.value+"";
         }
-      </script>
+  </script>
 
 
       <script type="text/javascript">
@@ -46,8 +44,7 @@
       {
         $(".picker2").each(function()
         {
-        
-          div=$(this);
+        div=$(this);
           if (icos)
           {
             var iconos="<ul>";
@@ -84,7 +81,6 @@ $(document).ready(function()
 {
 $(".picker1").each(function()
 {
-
   div=$(this);
   if (icos)
   {
@@ -204,7 +200,7 @@ $(".picker1").each(function()
 
 
 
-<script>
+{{-- <script>
 $(document).ready(function(){
 
 fetch_customer_data();
@@ -230,6 +226,98 @@ fetch_customer_data(query);
 });
 });
 </script>
+ --}}<!----------------------------------------------------------------------------------------
+  --------------------- -------   -Negocio--
+  ------------------------------------------------------------------------------------------>
+
+<!-- Script -->
+<script type='text/javascript'>
+  $(document).ready(function(){
+    function loadTnegocio(){
+    // Department Change
+//    $('#sector').change(function(){
+       // Department id
+     //  var id = $(this).val();
+     var id=  $('#sector option:selected').val();
+       // Empty the dropdown
+       $('#tnegocio').find('option').not(':first').remove();
+       // AJAX request 
+       $.ajax({
+         url: 'getTnegocio/'+id,
+         type: 'get',
+         dataType: 'json',
+         success: function(response){
+           var len = 0;
+           if(response['data'] != null){
+             len = response['data'].length;
+           }
+           if(len > 0){
+             // Read data and create <option >
+                var old=$('#tn').val();
+                console.log('id= '+id);   
+                console.log('old= '+old);   
+             for(var i=0; i<len; i++){
+               var id1 = response['data'][i].id_tiponegocio;
+               console.log('id1= '+id1); 
+               var name = response['data'][i].nombre;
+               var option = "<option value='negocio?cate="+id+"&cate1="+id1+"' "+(id1==old ? 'selected':'')+"   >"+name+"</option>"; 
+               $("#tnegocio").append(option); 
+             }
+           }
+         }
+      });
+    }
+  
+      loadTnegocio();
+      $('#sector').on('change',loadTnegocio);  
+  //    $('#tnegocio').on('change',loadTnegocio); 
+
+  });
+  
+ $(document).ready(function(){
+  $("#tnegocio").on("change", function(){
+        var ids=  $('#sector option:selected').val();
+      // var idtn=  $('#tnegocio option:selected').val();
+        console.log('ids= '+ids);   
+     //   console.log('idtn= '+idtn); 
+       $('#tnegocio').find('option').not(':first').remove();
+       $.ajax({
+         url: 'getTnegocio/'+ids,
+         type: 'get',
+         dataType: 'json',
+         success: function(response){
+           var len = 0;
+           if(response['data'] != null){
+             len = response['data'].length;
+           }
+           if(len > 0){
+                var old=$('#tn').val();
+                console.log('id= '+ids);   
+                console.log('old= '+old);   
+             for(var i=0; i<len; i++){
+               var id1 = response['data'][i].id_tiponegocio;
+               console.log('id1: '+id1 +'= old:'+old); 
+               var name = response['data'][i].nombre; 
+               var option = "<option value='negocio?cate="+ids+"cate1="+id1+"' "+(id1==old ? 'selected':'')+"  >"+name+"</option>"; 
+           //  var option = "<option value='"+id1+"'  @if( session('forms.tnegocio')  == '"+id1+"') selected='selected' @endif >"+name+"</option>"; 
+               $("#tnegocio").append(option); 
+             }
+           }
+         }
+      }); 
+      });
+      
+     
+    }); 
+
+
+    
+
+  </script>
+
+
+
+
 <!----------------------------------------------------------------------------------------
   --------------------- -------   -Detalle--
   ------------------------------------------------------------------------------------------>
@@ -299,7 +387,7 @@ fetch_customer_data(query);
        var action = button.data('action');
        var nombre = button.data('nombre');
        var cate = button.data('cate');
-       var modal = $(this);
+      + var modal = $(this);
        modal.find(".modal-content #txtEliminar").html("¿Está seguroooo de eliminar la pyme <b>" + nombre + "</b>?");
        modal.find('.modal-body #cate').val(cate);
        modal.find(".modal-content form").attr('action', action);
@@ -362,6 +450,8 @@ fetch_customer_data(query);
      });
    });
    </script>
+
+
 
    <!--.-----------------------------------USUARIO--->
 

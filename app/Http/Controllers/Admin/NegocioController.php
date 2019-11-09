@@ -7,9 +7,10 @@ use App\Http\Controllers\Controller;
 
 use App\TipoNegocio;
 use App\Negocio;
+use App\Sector;
 use App\Http\Requests\NegocioRequest;
 use DB;
-
+use App\Page;
 class NegocioController extends Controller
 {
     /**
@@ -17,17 +18,38 @@ class NegocioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function get(){
+        $sectores= Sector::all();
+        $sectoresArray['']='Selecciona un sector';
+      //  $sectoresArray[$sector->id_Sector]=$sector->nombre;
+        foreach($sectores as $sector){
+            $sectoresArray[$sector->id_Sector]=$sector->nombre;
+        }
+        return $sectoresArray;
+    }
     public function index(Request $request)
     {
+        
         $cate = trim($request->get('cate'));
-        $tipoNegocios=TipoNegocio::all();
-        if($cate!==""){
-            $negocios= Negocio::where('id_tiponegocio',$cate)->get();
-        }
+        $cate1 = trim($request->get('cate1'));
+      /*  // dd($cate);
+        $cate1 = trim($request->get('cate1'));
+        $sectores=Sector::all();
         
-        
-        return view('admin.negocio.index', compact('tipoNegocios','negocios','cate'));
-
+     //   $tipoNegocios=TipoNegocio::where('id_tiponegocio',1)->get();
+          */
+        if($cate1!==""){
+            $negocios= Negocio::where('id_tiponegocio',$cate1)->get();
+        }   
+      //  return view('admin.negocio.index', compact('negocios','sectores','cate','cate1'));
+      
+        $sectorData['data'] = Page::getSector();
+      
+        // Load index view
+      //  dd($sectorData);
+     // session()->put('forms.tnegocio', $request->get('tnegocio'));
+     // dd( session()->put('forms.tnegocio', $request->get('tnegocio')));
+        return view('admin.negocio.index', compact('negocios','sectorData','cate','cate1'));
     }
 
     /**
@@ -51,18 +73,17 @@ class NegocioController extends Controller
         try{
             $neg = new Negocio;
             $neg->nombre=trim($request->get('nombre'));
+            $cate1=trim($request->get('cate1'));
             $cate=trim($request->get('cate'));
+           // dd($request);
+          //  $cate1=trim($request->get('cate1'));
             $neg->descripcion=trim($request->get('descripcion'));
-           
             $neg->estado=1;
-            
-            $neg->id_tiponegocio=$cate;
-          
-           
+            $neg->id_tiponegocio=$cate1;
            $neg->save();
             //Convertir la foto a Binario
           
-            return redirect('negocio?cate='.$cate)->with('success','Negocio registrado con exito');
+            return redirect('negocio?cate='.$cate.'&cate1='.$cate1)->with('success','Negocio registrado con exito');
         }catch(\Exception | QueryException $e){
             return back()->withErrors(['exception'=>$e->getMessage()])->withInput();
         }
@@ -103,17 +124,18 @@ class NegocioController extends Controller
             info($request);
             $neg=Negocio::findOrFail($request->id_negocio);
             $cate=trim($request->get('cate'));
+            $cate1=trim($request->get('cate1'));
             $neg->nombre=trim($request->get('nombre'));
             $neg->descripcion=trim($request->get('descripcion'));
             $neg->update();
-            return redirect('negocio?cate='.$cate)->with('success','Negocio Actualizado con exito');
+            return redirect('negocio?cate='.$cate.'&cate1='.$cate1)->with('success','Negocio Actualizado con exito');
            
           //  return redirect('negocio?cate='.$cate.'/regions')->with('success','Negocio Actualizado con exito');
         }catch(\Exception | QueryException $e){
             return back()->withErrors(['exception'=>$e->getMessage()])->withInput();
         }
     }
-    public function updateModal(NegocioRequest $request)
+  /*   public function updateModal(NegocioRequest $request)
     {
         try{
             dd($request);
@@ -130,7 +152,7 @@ class NegocioController extends Controller
         }catch(\Exception | QueryException $e){
             return back()->withErrors(['exception'=>$e->getMessage()])->withInput();
         }
-    }
+    } */
 
     /**
      * Remove the specified resource from storage.
@@ -143,10 +165,12 @@ class NegocioController extends Controller
         try {
             $neg=Negocio::findOrFail($id);
             $cate=trim($request->get('cate'));
-            $neg->nombre=trim($request->get('nombre'));
+            $cate1=trim($request->get('cate1'));
+           // $neg->nombre=trim($request->get('nombre'));
+            
            $neg->estado=0;
            $neg->update();
-            return redirect('negocio?cate='.$cate)->with('success', 'Negocio eliminado');
+            return redirect('negocio?cate='.$cate.'&cate1='.$cate1)->with('success', 'Negocio eliminado');
         } catch (Exception $e) {
             return back()->withErrors(['exception' => $e->getMessage()]);
         }

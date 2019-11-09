@@ -7,12 +7,14 @@
                      <span aria-hidden="true">×</span>
                 </button>
             </div>
-            {!! Form::open(array('action'=>'SuperAdmin\NegocioController@store', 'method'=>'POST','files' => 'true'))!!}
+            {!! Form::open(array('action'=>'Admin\NegocioController@store', 'method'=>'POST','files' => 'true'))!!}
  
             <div class="modal-body">
                         <div class="card">
-                                <input class="form-control" id="cate" name="cate" type="text"
-                                value="{{$cate}}" required autofocus>
+                                 <input class="form-control" id="cate" name="cate" type="text" type="hidden"
+                                value="{{$cate}}" required autofocus> 
+                                <input class="form-control" id="cate1" name="cate1" type="text" type="hidden"
+                                value="{{$cate1}}" required autofocus> 
                                 <div class="alert alert-danger" style="display:none"></div>
                                 <div class="card-body">
                                         <fieldset class="form-group">
@@ -27,7 +29,7 @@
                                                     
                                                     required autofocus>
                                                 </div>
-                                                <small class="text-muted">Ejemplo: Servicios</small>
+                                               
                                         </fieldset>
                                         <fieldset class="form-group">
                                                 <label>Descripción:</label>

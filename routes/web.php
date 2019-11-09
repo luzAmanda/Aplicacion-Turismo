@@ -41,13 +41,17 @@ Route::group(['middleware' => ['auth']], function () {
 
     });  
     Route::group(['middleware'=> ['role:Administrador']], function () {
+       // Route::get('/negocio','Admin\PagesController@index');
+      Route::get('getTnegocio/{id}','Admin\PagesController@getTnegocio');
       Route::get('Admin-home', 'Admin\AdminController@index');
       Route::resource('tiponegocio', 'Admin\TipoNegocioController');
       Route::resource('negocio', 'Admin\NegocioController');
+    
+     // Route::get('negocio1/{cat}/{cate1}', 'Admin\NegocioController@index');
       Route::resource('sucursal', 'Admin\SucursalController');
       Route::resource('usuario', 'Admin\UsuarioController');
 
-      Route::get('negocio/{id}', 'Admin\NegocioController@index');
+     // Route::get('negocio/{id}', 'Admin\NegocioController@index');
     });
 
     Route::group(['middleware'=> ['role:Propietario']], function () {

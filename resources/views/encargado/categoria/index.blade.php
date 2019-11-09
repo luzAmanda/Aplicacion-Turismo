@@ -5,9 +5,9 @@
    
      @section("contenid")
     
-    @include('admin/categoria/createModal')
-    @include('admin/categoria/editModal')
-    @include('admin/categoria/delete')
+    @include('encargado/categoria/createModal')
+    @include('encargado/categoria/editModal')
+    @include('encargado/categoria/delete')
      
 <div><br></div>
      <div class="animated fadeIn">
@@ -24,7 +24,7 @@
                                    
                                     <div id="DataTables_Table_0_filter" class="dataTables_filter">
                                      
-                                    @include('admin/categoria.search')
+                                    @include('encargado/categoria.search')
                                     </div>
                                    
                             </div>
@@ -68,8 +68,7 @@
                                                 font-size: 24px;
                                                 margin-bottom: 10px;
                                           margin-top: 5px;"> -->  
-                                 <img style="width: 30px;
-                                 height: 30px;" src='svg/education/{{$cat->icono}}.svg'>
+                                 <img style="width: 30px; height: 30px;" src='svg/education/{{$cat->icono}}.svg'>
                                         <!--</span>-->
                                     </td>
                                     <td>    

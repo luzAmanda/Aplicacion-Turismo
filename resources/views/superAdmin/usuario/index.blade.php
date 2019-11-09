@@ -70,11 +70,12 @@
                                                  data-toggle="modal" data-target="#myEditModal"  >
                                                 <i class="fa fa-pencil-square-o"  aria-hidden="true"></i>  
                                                 </a>
-        
-                                          
-                                                <a href="detalle?cate={{$cat->id_categoria}}"
-                                                            class="btn  btn-outline-primary"><i class="fa fa-plus" aria-hidden="true">Agregar Producto</i>
+                                                <a title="Eliminar" data-toggle="modal" data-target="#modalDelete" 
+                                                
+                                                            href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i>
                                                 </a>
+                                          
+                                                
                                             </td>
                                         </tr>
                                 @endforeach

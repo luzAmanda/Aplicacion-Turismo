@@ -11,7 +11,9 @@
              
             <div class="modal-body">
                         <div class="card">
-                                <input class="form-control" id="cate" name="cate" type="hidden"
+                                <input class="form-control" id="cate" name="cate" type="hidden" value="{{$cate}}" 
+                                 required autofocus>
+                                 <input class="form-control" id="cate1" name="cate1" type="hidden" value="{{$cate1}}" 
                                  required autofocus>
                                 <input class="form-control" id="id_negocio" name="id_negocio" type="hidden"
                                required autofocus>

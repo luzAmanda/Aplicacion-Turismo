@@ -24,7 +24,7 @@ class CategoriaController extends Controller
             } 
             $categorias=DB::table('categorias')->
             where('nombre','LIKE','%'.$query.'%')->where('estado','=',1)
-            ->orderBy('updated_at')->paginate($pag);
+            ->orderBy('created_at')->paginate($pag);
     
       //  $categorias=Categoria::where('estado','=',1)->orderBy('created_at')->paginate($pag);
       

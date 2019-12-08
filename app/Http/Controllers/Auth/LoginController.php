@@ -40,10 +40,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-//    protected function authenticated(Request $request, $user)
-  //  {
-      /*   $roles = $user->where('estado', 1)->get();
+   /*protected function authenticated(Request $request, $user)
+   {
+        $roles = $user->where('estado', 1)->get();
         if ($roles->isNotEmpty()) {
+           
             $user->setSession($roles->toArray());
         } else {
             $this->guard()->logout();

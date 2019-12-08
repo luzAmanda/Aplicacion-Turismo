@@ -16,6 +16,9 @@ class CreateSectoresTable extends Migration {
 		{
 			$table->integer('id_sector', true);
 			$table->string('nombre', 100)->nullable();
+			$table->string('icono', 100)->nullable();
+			$table->integer('estado')->nullable();
+			$table->timestamps();
 		});
 	}
 

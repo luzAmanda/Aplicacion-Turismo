@@ -12230,7 +12230,7 @@ canvas {
   height: 55px;
   padding: 0;
   margin: 0;
-  background-color: #fff;
+  background-color: #1a346beb;
   border-bottom: 1px solid #c8ced3;
 }
 
@@ -14710,7 +14710,7 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
     z-index: 1020;
     width: 100%;
     text-align: center;
-    background-color: #fff;
+    background-color: #1a346beb;
   }
   .app-header .navbar-toggler {
     color: #fff;

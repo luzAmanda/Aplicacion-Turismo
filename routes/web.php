@@ -1,22 +1,12 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
   return view('welcome');
 });
 
 Route::get('/home', function () {
-  if( Auth::user() )
+  if( Auth::user() ){
       if( Auth::user()->hasRole('SuperAdmin')) //se valida el tipo de usuario
           return redirect('/SuperAdmin-home');
       elseif(Auth::user()->hasRole('Administrador'))
@@ -25,17 +15,19 @@ Route::get('/home', function () {
                return redirect('/Propietario-home');
           elseif(Auth::user()->hasRole('Encargado'))
                 return redirect('/Encargado-home');
-
-  else
-      return redirect('/login');
+  }
+  else{
+  
+      return redirectTo('/login');}
 
 });
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
+  Route::resource('perfil', 'PerfilController');
     Route::group(['middleware'=> ['role:SuperAdmin']], function () {
       Route::get('SuperAdmin-home', 'SuperAdmin\SuperAdminController@index');
       Route::resource('rol', 'SuperAdmin\RolController');
-      Route::resource('usuario-admin', 'SuperAdmin\UsuarioController');
+      Route::resource('usuario-sadmin', 'SuperAdmin\UsuarioController');
       Route::resource('sector', 'SuperAdmin\SectorController');
     //  Route::resource('usuario', 'SuperAdmin1\UsuarioController');
 

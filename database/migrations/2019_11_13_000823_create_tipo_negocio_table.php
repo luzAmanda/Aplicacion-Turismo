@@ -19,6 +19,8 @@ class CreateTipoNegocioTable extends Migration {
 			$table->string('nombre', 100);
 			$table->text('descripcion')->nullable();
 			$table->string('icono', 20)->nullable();
+			$table->integer('estado')->nullable();
+			$table->timestamps();
 		});
 	}
 

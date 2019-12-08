@@ -59,56 +59,39 @@
       <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <ul class="nav navbar-nav d-md-down-none">
-        <li class="nav-item px-3">
-          <a class="nav-link" href="categoria">Home</a>
-        </li>
-        <li class="nav-item px-3">
-          <a class="nav-link" href="#">Users</a>
-        </li>
-        <li class="nav-item px-3">
-          <a class="nav-link" href="#">Settings</a>
-         
-        </li>
-
-        <li>
-        
-            <a class="dropdown-item" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-                {{ __('Logout') }} 
-            </a>
-  
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-       
-          </li>
-        
-      </ul>
-      <ul class="nav navbar-nav ml-auto">
-       
-        
+     
+      <ul class="nav navbar-nav ml-auto show">
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="img-avatar" src="{{asset('coreui/img/avatars/im1.jpg')}}" alt="admin@bootstrapmaster.com">
+          Encargado   <img class="img-avatar" src="{{asset('coreui/img/avatars/im1.jpg')}}" alt="admin@bootstrapmaster.com">
           </a>
         </li>
-        <li class="nav-item d-md-down-none">
-            <a class="nav-link" href="#">
-              <i class="icon-settings"></i>
-            <!--  <span class="badge badge-pill badge-danger">5</span>-->
-            </a>
-          </li>
+
+<li class="nav-item dropdown"> 
+  
+  <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+    <i class="icon-settings"></i>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right dropdown-menu">
+    <a class="dropdown-item" href="perfil">
+      <i class="icon-user-unfollow  text-success"></i> Perfil</a>
+    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="icon-logout text-danger">  </i>
+                {{ __('Logout') }} 
+    </a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+      </form>
+    </a>
+  </div>
+  </li>     
       </ul>
     </header>
     <div class="app-body">
 
 
        @include("theme/crui/aside")
-
-
       <main class="main">
+          @yield('menu-usuarios')  
         <div class="container-fluid">
           <div class="animated fadeIn">
 

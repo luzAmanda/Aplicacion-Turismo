@@ -31,4 +31,5 @@ class User extends Authenticatable
             ->belongsToMany('App\Role');
     }
    
+   
 }

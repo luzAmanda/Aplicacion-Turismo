@@ -39,7 +39,7 @@
             @role('SuperAdmin')
             <li class="nav-title">Seguridad</li>
             <li class="nav-item nav-dropdown">
-              <a class="nav-link" href="usuario-admin">
+              <a class="nav-link" href="usuario-sadmin">
                 <i class="nav-icon icon-cursor"></i> Usuarios</a>
               <ul class="nav-dropdown-items">
               </ul>
